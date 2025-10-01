@@ -179,7 +179,7 @@ export default async function GroupHome({ params }: PageProps) {
                                 const paidByName = memberMap.get(payment.paid_by_member_id) || '不明';
 
                                 return (
-                                    <div key={payment.id} className="flex justify-between items-center border-b py-5">
+                                    <div key={payment.id} className="flex justify-between items-center border-b border-sky-600 py-5">
                                         <div>
                                             <h3 className="font-semibold">{payment.description}</h3>
                                             <p className="text-sm text-gray-500 mt-1">立替人：{paidByName}</p>

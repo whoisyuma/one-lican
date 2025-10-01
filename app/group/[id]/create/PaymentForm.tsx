@@ -34,7 +34,7 @@ export default function PaymentForm({ members, groupId }: PaymentFormProps) {
         {error && <p className="text-red-500 text-sm mb-5">{error}</p>}
         <input type="hidden" name="groupId" value={groupId}/>
 
-        <div className="flex justify-between border-b pb-8 mb-8">
+        <div className="flex justify-between border-b border-sky-600 pb-8 mb-8">
           <label htmlFor="paidBy" className="text-xl font-bold text-gray-700">立替者</label>
           <select name="paidBy" id="paidBy" required className="border rounded-md shadow-sm">
               {members.map((member) => (
@@ -43,7 +43,7 @@ export default function PaymentForm({ members, groupId }: PaymentFormProps) {
           </select>
         </div>
 
-        <div className="flex justify-between border-b pb-8 mb-8">
+        <div className="flex justify-between border-b border-sky-600 pb-8 mb-8">
           <h2 className="text-xl font-bold text-gray-700">負担者</h2>
           <div className="space-y-1">
               {members.map((member) => (
@@ -57,12 +57,12 @@ export default function PaymentForm({ members, groupId }: PaymentFormProps) {
           </div>
         </div>
 
-        <div className="flex justify-between border-b pb-8 mb-8">
+        <div className="flex justify-between border-b border-sky-600 pb-8 mb-8">
           <label htmlFor="description" className="text-xl font-bold text-gray-700">支払い内容</label>
           <input type="text" id="description" name="description" required className="border rounded-md shadow-sm mt-1"/>
         </div>
 
-        <div className="flex justify-between border-b pb-8 mb-8">
+        <div className="flex justify-between pb-8 mb-8">
           <label htmlFor="amount" className="text-xl font-bold text-gray-700">金額</label>
           <input type="number" id="amount" name="amount" required className="border rounded-md shadow-sm mt-1"/>
         </div>
