@@ -47,7 +47,7 @@ export default function CreateGroup() {
 
           <div className="mb-8">
             <label className="font-semibold mb-5">グループ名</label>
-            <input type="text" id="groupName" name="groupName" placeholder="グループ名" required className="pl-2 mt-3 block w-1/2 h-12 rounded-md border-gray-500 shadow-sm focus:border-sky-600"/>
+            <input type="text" id="groupName" name="groupName" placeholder="グループ名" required className="pl-2 mt-3 block w-1/2 h-12 rounded-md border-2 border-gray-400 shadow-sm"/>
           </div>
 
           <div className="mb-15">
@@ -64,7 +64,7 @@ export default function CreateGroup() {
                   }
                 }} 
                 placeholder="メンバー名" 
-                className="pl-2 mt-3 mr-2 w-1/2 h-8 rounded-md border-gray-500 shadow-sm"
+                className="pl-2 mt-3 mr-2 w-1/2 h-8 rounded-md border-2 border-gray-400 shadow-sm"
               />
               <button type="button" onClick={addMember} className="bg-sky-600 text-white rounded-md px-5 py-1">
                 追加
