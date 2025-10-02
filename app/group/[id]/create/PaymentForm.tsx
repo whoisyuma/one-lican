@@ -4,7 +4,6 @@ import { useState } from "react";
 import { createPayment } from "./actions";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { group } from "console";
 
 interface Member {
   id: string;
