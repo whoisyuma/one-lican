@@ -181,7 +181,12 @@ export default async function GroupHome({ params }: PageProps) {
                                 return (
                                     <div key={payment.id} className="flex justify-between items-center border-b border-sky-600 py-5">
                                         <div>
-                                            <h3 className="font-semibold">{payment.description}</h3>
+                                            <div className="flex items-center space-x-2">
+                                                <h3 className="font-semibold">{payment.description}</h3>
+                                                <Link href={`/group/${groupId}/payments/${payment.id}/edit`}>
+                                                    <img src="/edit.svg" alt="編集アイコン" className="w-4 h-4"/>
+                                                </Link>
+                                            </div>
                                             <p className="text-sm text-gray-500 mt-1">立替人：{paidByName}</p>
                                             <p className="text-sm text-gray-500 mt-1">
                                                 負担者：{paymentShares.map(share => memberMap.get(share.member_id) || '不明').join('、 ')}

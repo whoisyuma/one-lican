@@ -15,7 +15,7 @@ export default async function CreatePayment({ params }: PageProps) {
     const supabase = await createClient();
 
     // groupテーブルからメンバーリストを取得
-    const { data: groupData, error } = await (await supabase).from('groups').select('members').eq('id', groupId).single();
+    const { data: groupData, error } = await supabase.from('groups').select('members').eq('id', groupId).single();
 
     if (error || !groupData) {
         console.error('グループメンバーの取得エラー：', error);
