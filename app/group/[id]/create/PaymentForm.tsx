@@ -4,6 +4,7 @@ import { useState } from "react";
 import { createPayment } from "./actions";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { group } from "console";
 
 interface Member {
   id: string;
@@ -34,9 +35,9 @@ export default function PaymentForm({ members, groupId }: PaymentFormProps) {
         {error && <p className="text-red-500 text-sm mb-5">{error}</p>}
         <input type="hidden" name="groupId" value={groupId}/>
 
-        <div className="flex justify-between border-b border-sky-600 pb-8 mb-8">
+        <div className="flex justify-between items-center border-b border-sky-600 pb-8 mb-8">
           <label htmlFor="paidBy" className="text-xl font-bold text-gray-700">立替者</label>
-          <select name="paidBy" id="paidBy" required className="border rounded-md shadow-sm">
+          <select name="paidBy" id="paidBy" required className="border rounded-md p-1 shadow-sm">
               {members.map((member) => (
                   <option key={member.id} value={member.id}>{member.name}</option>
               ))}
@@ -57,18 +58,21 @@ export default function PaymentForm({ members, groupId }: PaymentFormProps) {
           </div>
         </div>
 
-        <div className="flex justify-between border-b border-sky-600 pb-8 mb-8">
+        <div className="flex justify-between items-center border-b border-sky-600 pb-8 mb-8">
           <label htmlFor="description" className="text-xl font-bold text-gray-700">支払い内容</label>
-          <input type="text" id="description" name="description" required className="border rounded-md shadow-sm mt-1"/>
+          <input type="text" id="description" name="description" placeholder="昼食代" required className="border rounded-md shadow-sm p-1 mt-1"/>
         </div>
 
-        <div className="flex justify-between pb-8 mb-8">
+        <div className="flex justify-between items-center pb-8 mb-8">
           <label htmlFor="amount" className="text-xl font-bold text-gray-700">金額</label>
-          <input type="number" id="amount" name="amount" required className="border rounded-md shadow-sm mt-1"/>
+          <input type="number" id="amount" name="amount" required placeholder="5000" className="border rounded-md shadow-sm p-1 mt-1"/>
         </div>
 
-        <div className="flex justify-center">
-          <button type="submit" className="bg-sky-600 text-white rounded-md py-2 w-2/3">
+        <div className="flex space-x-3">
+          <Link href={`/group/${groupId}/home`} className="rounded-md border border-gray-400 py-2 w-1/2 text-center bg-gray-200">
+              戻る
+          </Link>
+          <button type="submit" className="bg-sky-600 text-white rounded-md py-2 w-1/2">
             立て替えを記録
           </button>
         </div>
