@@ -28,7 +28,7 @@ export default async function GroupPage({ params }: PageProps) {
                 </div>
 
                 <div className="mb-10 flex justify-center">
-                    <h1 className="text-xl border-2 rounded-xl px-7 py-2">http://localhost:3000/group/{group?.id}/home</h1>
+                    <h1 className="text-xl border-2 rounded-xl px-7 py-2">https://one-lican.vercel.app/group/{group?.id}/home</h1>
                 </div>
 
                 <div className="flex justify-center">
