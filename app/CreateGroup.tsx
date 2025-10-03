@@ -46,12 +46,12 @@ export default function CreateGroup() {
           {error && <p className="text-red-500 text-sm mb-5">{error}</p>}
 
           <div className="mb-8">
-            <label className="font-semibold mb-5">グループ名</label>
-            <input type="text" id="groupName" name="groupName" placeholder="グループ名" required className="pl-2 mt-3 block w-1/2 h-12 rounded-md border-2 border-gray-400 shadow-sm"/>
+            <label className="font-semibold">グループ名</label>
+            <input type="text" id="groupName" name="groupName" placeholder="グループ名" required className="pl-2 mt-2 block lg:w-2/3 w-full py-1 rounded-md border-2 border-gray-400 shadow-sm"/>
           </div>
 
           <div className="mb-15">
-            <h2 className="font-semibold mb-5">メンバー名</h2>
+            <h2 className="font-semibold">メンバー名</h2>
             <div className="mb-5">
               <input 
                 type="text" 
@@ -64,7 +64,7 @@ export default function CreateGroup() {
                   }
                 }} 
                 placeholder="メンバー名" 
-                className="pl-2 mt-3 mr-2 w-1/2 h-8 rounded-md border-2 border-gray-400 shadow-sm"
+                className="pl-2 mt-2 mr-2 lg:w-2/5 w-2/3 py-1 rounded-md border-2 border-gray-400 shadow-sm"
               />
               <button type="button" onClick={addMember} className="bg-sky-600 text-white rounded-md px-5 py-1">
                 追加

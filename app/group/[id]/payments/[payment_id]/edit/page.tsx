@@ -54,7 +54,7 @@ export default async function EditPaymentPage({params}: PageProps) {
 
     return (
         <div className="bg-gray-100 min-h-screen">
-                    <div className="w-1/2 m-auto pt-10">
+                    <div className="lg:w-1/2 md:w-2/3 w-full m-auto px-5 md:px-0 pt-10">
                         <EditPaymentForm 
                             groupId={groupId}
                             paymentId={paymentId}

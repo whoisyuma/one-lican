@@ -133,18 +133,18 @@ export default async function GroupHome({ params }: PageProps) {
 
     return (
         <div className="bg-gray-100 min-h-screen">
-            <div className="w-1/2 m-auto pt-10">
+            <div className="lg:w-1/2 md:w-2/3 w-full m-auto px-5 md:px-0 pt-10">
                 <div className="mb-15">
-                    <h1 className="text-4xl font-bold mb-3">{group?.name}</h1>
+                    <h1 className="md:text-4xl text-2xl font-bold md:mb-3 mb-2">{group?.name}</h1>
                     <div className="flex">
-                        <p className="text-sm">
+                        <p className="md:text-sm text-xs">
                             メンバー：{group?.members.map((member: Member) => member.name).join('・')}
                         </p>
                     </div>
                 </div>
 
                 <section className="mb-30">
-                    <h1 className="text-2xl font-bold mb-5">精算方法</h1>
+                    <h1 className="md:text-2xl text-xl font-bold mb-5">精算方法</h1>
                     {settlements.length > 0 ? (
                         <div className="space-y-1">
                             {settlements.map((settlement, index) => (
@@ -160,18 +160,18 @@ export default async function GroupHome({ params }: PageProps) {
                         </div>
                         
                     ) : (
-                        <p>精算の必要はありません。</p>
+                        <p className="text-sm md:text-base">精算の必要はありません。</p>
                     )}
                 </section>
 
                 <section className="mb-10 flex justify-center">
-                    <Link href={`/group/${group?.id}/create`} className="bg-sky-600 text-center text-white rounded-md text-xl py-3 w-2/3">
+                    <Link href={`/group/${group?.id}/create`} className="bg-sky-600 text-center text-white rounded-3xl md:text-xl text-base py-2 md:py-3 w-2/3">
                         立て替えを追加
                     </Link>
                 </section>
 
                 <section className="pb-10">
-                    <h1 className="text-2xl font-bold mb-5">立替一覧</h1>
+                    <h1 className="md:text-2xl text-xl font-bold mb-5">立替一覧</h1>
                     {payments.length > 0 ? (
                         <div>
                             {payments.map((payment) => {
@@ -187,8 +187,8 @@ export default async function GroupHome({ params }: PageProps) {
                                                     <img src="/edit.svg" alt="編集アイコン" className="w-4 h-4"/>
                                                 </Link>
                                             </div>
-                                            <p className="text-sm text-gray-500 mt-1">立替人：{paidByName}</p>
-                                            <p className="text-sm text-gray-500 mt-1">
+                                            <p className="text-xs text-gray-500 mt-1">立替人：{paidByName}</p>
+                                            <p className="text-xs text-gray-500 mt-1">
                                                 負担者：{paymentShares.map(share => memberMap.get(share.member_id) || '不明').join('、 ')}
                                             </p>
                                         </div>
@@ -198,7 +198,7 @@ export default async function GroupHome({ params }: PageProps) {
                             })}
                         </div>
                     ) : (
-                        <p>まだ立て替えは記録されていません。</p>
+                        <p className="text-sm md:text-base">まだ立て替えは記録されていません。</p>
                     )}
                 </section>
             </div>

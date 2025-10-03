@@ -35,8 +35,8 @@ export default function PaymentForm({ members, groupId }: PaymentFormProps) {
         <input type="hidden" name="groupId" value={groupId}/>
 
         <div className="flex justify-between items-center border-b border-sky-600 pb-8 mb-8">
-          <label htmlFor="paidBy" className="text-xl font-bold text-gray-700">立替者</label>
-          <select name="paidBy" id="paidBy" required className="border rounded-md p-1 shadow-sm">
+          <label htmlFor="paidBy" className="md:text-xl text-lg font-bold text-gray-700">立替者</label>
+          <select name="paidBy" id="paidBy" required className="border rounded-md md:p-1 p-0.5 shadow-sm">
               {members.map((member) => (
                   <option key={member.id} value={member.id}>{member.name}</option>
               ))}
@@ -44,7 +44,7 @@ export default function PaymentForm({ members, groupId }: PaymentFormProps) {
         </div>
 
         <div className="flex justify-between border-b border-sky-600 pb-8 mb-8">
-          <h2 className="text-xl font-bold text-gray-700">負担者</h2>
+          <h2 className="md:text-xl text-lg font-bold text-gray-700">負担者</h2>
           <div className="space-y-1">
               {members.map((member) => (
                   <div key={member.id} className="flex items-center">
@@ -58,20 +58,20 @@ export default function PaymentForm({ members, groupId }: PaymentFormProps) {
         </div>
 
         <div className="flex justify-between items-center border-b border-sky-600 pb-8 mb-8">
-          <label htmlFor="description" className="text-xl font-bold text-gray-700">支払い内容</label>
-          <input type="text" id="description" name="description" placeholder="昼食代" required className="border rounded-md shadow-sm p-1 mt-1"/>
+          <label htmlFor="description" className="md:text-xl text-lg font-bold text-gray-700">支払い内容</label>
+          <input type="text" id="description" name="description" placeholder="昼食代" required className="border rounded-md shadow-sm p-1"/>
         </div>
 
         <div className="flex justify-between items-center pb-8 mb-8">
-          <label htmlFor="amount" className="text-xl font-bold text-gray-700">金額</label>
-          <input type="number" id="amount" name="amount" required placeholder="5000" className="border rounded-md shadow-sm p-1 mt-1"/>
+          <label htmlFor="amount" className="md:text-xl text-lg font-bold text-gray-700">金額</label>
+          <input type="number" id="amount" name="amount" required placeholder="5000" className="border rounded-md shadow-sm p-1"/>
         </div>
 
-        <div className="flex space-x-3">
-          <Link href={`/group/${groupId}/home`} className="rounded-md border border-gray-400 py-2 w-1/2 text-center bg-gray-200">
+        <div className="flex md:space-x-3 space-x-2">
+          <Link href={`/group/${groupId}/home`} className="rounded-md border border-gray-400 md:text-base text-sm py-2 w-1/2 text-center bg-gray-200">
               戻る
           </Link>
-          <button type="submit" className="bg-sky-600 text-white rounded-md py-2 w-1/2">
+          <button type="submit" className="bg-sky-600 text-white md:text-base text-sm rounded-md py-2 w-1/2">
             立て替えを記録
           </button>
         </div>
