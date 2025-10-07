@@ -1,5 +1,6 @@
 import { createClient } from "@/utils/supabase/server"
 import Link from "next/link";
+import LoadingCreateLink from "./LoadingCreateLink";
 
 interface Member {
     id: string;
@@ -165,9 +166,9 @@ export default async function GroupHome({ params }: PageProps) {
                 </section>
 
                 <section className="mb-10 flex justify-center">
-                    <Link href={`/group/${group?.id}/create`} className="bg-sky-600 text-center text-white rounded-3xl md:text-xl text-base py-2 md:py-3 w-2/3">
+                    <LoadingCreateLink href={`/group/${group?.id}/create`} className="bg-sky-600 text-center text-white rounded-3xl md:text-xl text-base py-2 md:py-3 w-2/3">
                         立て替えを追加
-                    </Link>
+                    </LoadingCreateLink>
                 </section>
 
                 <section className="pb-10">
