@@ -132,7 +132,7 @@ export default async function GroupHome({ params }: PageProps) {
     }
 
     return (
-        <div className="bg-gray-100 min-h-screen">
+        <div className="bg-gray-200 min-h-screen">
             <div className="lg:w-1/2 md:w-2/3 w-full m-auto px-5 md:px-0 pt-10">
                 <div className="mb-15">
                     <h1 className="md:text-4xl text-2xl font-bold md:mb-3 mb-2">{group?.name}</h1>

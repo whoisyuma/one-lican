@@ -24,7 +24,7 @@ export default async function CreatePayment({ params }: PageProps) {
     const members: Member[] = groupData?.members || [];
 
     return (
-        <div className="bg-gray-100 min-h-screen">
+        <div className="bg-gray-200 min-h-screen">
             <div className="lg:w-1/2 md:w-2/3 w-full m-auto px-5 md:px-0 pt-10">
                 <PaymentForm members={members} groupId={groupId}/>
             </div>
