@@ -29,7 +29,7 @@ export default function RootLayout({
       >
 
       {/* ヘッダー */}
-      <header className="w-full p-5 bg-gray-100">
+      <header className="w-full p-5 bg-gray-200">
         <div className="flex justify-center items-end">
           <h1 className="font-bold text-2xl mr-1 text-sky-600 mt-10">Lican</h1>
           <span className="font-bold text-xs mb-1 text-sky-600">リカン</span>
