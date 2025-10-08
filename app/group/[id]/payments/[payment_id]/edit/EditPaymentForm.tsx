@@ -1,6 +1,5 @@
 'use client'
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState, useTransition } from "react";
 import { deletePayment, updatePayment } from "./actions";
