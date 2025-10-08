@@ -41,6 +41,7 @@ export default function PaymentForm({ members, groupId }: PaymentFormProps) {
     }
   }
 
+  // 戻るボタンの処理
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     startTransition(() => {
