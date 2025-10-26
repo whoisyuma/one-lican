@@ -150,8 +150,8 @@ export default async function GroupHome({ params }: PageProps) {
                     </div>
                 </div>
 
-                <section className="mb-30">
-                    <h1 className="md:text-2xl text-xl font-bold mb-5">精算方法</h1>
+                <section className="mb-20 md:mb-25 lg:mb-30 lg:w-2/3">
+                    <h1 className="md:text-2xl text-xl font-bold mb-5 border-b border-sky-600 pb-2">精算方法</h1>
                     {settlements.length > 0 ? (
                         <div className="space-y-1">
                             {settlements.map((settlement, index) => (
@@ -171,16 +171,19 @@ export default async function GroupHome({ params }: PageProps) {
                     )}
                 </section>
 
-                <section>
-                    {group.members.map((member) => {
-                        const amount = totalShares.get(member.id) || 0;
-                        return (
-                            <div key={member.id}>
-                                <span>{member.name}</span>
-                                <span>{amount.toLocaleString()}</span>
-                            </div>
-                        )
-                    })}
+                <section className="mb-20 md:mb-25 lg:mb-30 lg:w-2/3">
+                    <h1 className="md:text-2xl text-xl font-bold mb-5 border-b border-sky-600 pb-2">支出額</h1>
+                    <div className="space-y-1">
+                        {group.members.map((member) => {
+                            const amount = totalShares.get(member.id) || 0;
+                            return (
+                                <div key={member.id}  className="flex justify-between">
+                                    <span className="font-semibold">{member.name}</span>
+                                    <span className="font-semibold">{amount.toLocaleString()}円</span>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </section>
 
                 <section className="mb-10 flex justify-center">
