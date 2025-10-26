@@ -74,24 +74,30 @@ export default async function GroupHome({ params }: PageProps) {
         memberMap.set(member.id, member.name);
     })
 
-    // 清算の処理
+    //支出額の計算処理と精算の計算処理を行う
+    const totalShares = new Map<string, number>();
     const balances = new Map<string, number>();
 
-    // 全メンバーのbalanceを０に初期化
+    // 全メンバーのbalanceとtotalSharesを０に初期化
     group.members.forEach(member => {
         balances.set(member.id, 0);
+        totalShares.set(member.id, 0);
     });
 
-    // 立て替えの金額を加算する
+    // paymentsテーブルを参照して、立て替えの金額を加算する
     payments.forEach(payment => {
         const currentBalance = balances.get(payment.paid_by_member_id) || 0;
         balances.set(payment.paid_by_member_id, currentBalance + payment.amount);
     });
 
-    // 負担金額を減算する
+    // sharesテーブルを参照して、負担金額を減算する
     shares.forEach(share => {
         const currentBalance = balances.get(share.member_id) || 0;
         balances.set(share.member_id, currentBalance - share.amount);
+
+        //支出額の合計金額を計算
+        const currentShare = totalShares.get(share.member_id) || 0;
+        totalShares.set(share.member_id, currentShare + share.amount);
     });
 
     // 貸し手と借り手を分離
@@ -105,7 +111,7 @@ export default async function GroupHome({ params }: PageProps) {
         }
     });
 
-    // 清算の計算
+    // balancesを元に1つずつ精算の処理を行う
     const settlements: Settlement[] = [];
     let i = 0;
     let j = 0;
@@ -163,6 +169,18 @@ export default async function GroupHome({ params }: PageProps) {
                     ) : (
                         <p className="text-sm md:text-base">精算の必要はありません。</p>
                     )}
+                </section>
+
+                <section>
+                    {group.members.map((member) => {
+                        const amount = totalShares.get(member.id) || 0;
+                        return (
+                            <div key={member.id}>
+                                <span>{member.name}</span>
+                                <span>{amount.toLocaleString()}</span>
+                            </div>
+                        )
+                    })}
                 </section>
 
                 <section className="mb-10 flex justify-center">
