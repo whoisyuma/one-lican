@@ -186,14 +186,13 @@ export default async function GroupHome({ params }: PageProps) {
                     </div>
                 </section>
 
-                <section className="mb-10 flex justify-center">
-                    <LoadingCreateLink href={`/group/${group?.id}/create`} className="bg-sky-600 text-center text-white rounded-3xl md:text-xl text-base py-2 md:py-3 w-2/3">
-                        立て替えを追加
-                    </LoadingCreateLink>
-                </section>
-
                 <section className="pb-10">
-                    <h1 className="md:text-2xl text-xl font-bold mb-5 border-b border-sky-600 pb-2 lg:w-2/3">立替一覧</h1>
+                    <div className="border-b border-sky-600 pb-2 mb-2 flex justify-between items-center">
+                        <h1 className="md:text-2xl text-xl font-bold">立替一覧</h1>
+                        <LoadingCreateLink href={`/group/${group?.id}/create`} className="bg-sky-600 text-center text-white md:text-base text-sm rounded-md md:py-1.5 py-1 md:px-5 px-3 cursor-pointer">
+                            立替を追加
+                        </LoadingCreateLink>
+                    </div>
                     {payments.length > 0 ? (
                         <div>
                             {payments.map((payment) => {
@@ -221,7 +220,7 @@ export default async function GroupHome({ params }: PageProps) {
                             })}
                         </div>
                     ) : (
-                        <p className="text-sm md:text-base">まだ立て替えは記録されていません。</p>
+                        <p className="pt-3 text-sm md:text-base">まだ立て替えは記録されていません。</p>
                     )}
                 </section>
             </div>
