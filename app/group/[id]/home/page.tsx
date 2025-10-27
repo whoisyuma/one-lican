@@ -189,7 +189,7 @@ export default async function GroupHome({ params }: PageProps) {
                 <section className="pb-10">
                     <div className="border-b border-sky-600 pb-2 mb-2 flex justify-between items-center">
                         <h1 className="md:text-2xl text-xl font-bold">立替一覧</h1>
-                        <LoadingCreateLink href={`/group/${group?.id}/create`} className="bg-sky-600 text-center text-white md:text-base text-sm rounded-md md:py-1.5 py-1 md:px-5 px-3 cursor-pointer">
+                        <LoadingCreateLink href={`/group/${group?.id}/create`} className="bg-sky-600 hover:bg-sky-700 duration-200 text-center text-white md:text-base text-sm rounded-md md:py-1.5 py-1 md:px-5 px-3 cursor-pointer">
                             立替を追加
                         </LoadingCreateLink>
                     </div>

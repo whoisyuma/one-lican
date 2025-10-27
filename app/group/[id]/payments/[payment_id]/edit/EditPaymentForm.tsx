@@ -31,7 +31,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <button type="submit" disabled={pending} className="bg-sky-600 text-white md:text-base text-sm rounded-md py-2 w-1/2">
+    <button type="submit" disabled={pending} className="bg-sky-600 hover:bg-sky-700 duration-200 text-white md:text-base text-sm rounded-md py-2 w-1/2">
       {pending ? '更新中...' : '更新する'}
     </button>
   )
@@ -42,7 +42,7 @@ function DeleteButton() {
   const { pending } = useFormStatus();
 
   return (
-    <button type="submit" disabled={pending} className="rounded-md bg-red-500 text-white md:text-base text-sm py-2 w-1/2">
+    <button type="submit" disabled={pending} className="rounded-md bg-red-500 hover:bg-red-600 duration-200 text-white md:text-base text-sm py-2 w-1/2">
       {pending ? '削除中...' : '削除する'}
     </button>
   )
@@ -131,7 +131,7 @@ export default function EditPaymentForm({ groupId, paymentId, members, initialPa
                 </div>
 
                 <div className="flex justify-center space-x-3 mb-3">
-                    <button type="button" onClick={handleClick} className="rounded-md border border-gray-400 md:text-base text-sm py-2 w-1/2 text-center bg-gray-100">
+                    <button type="button" onClick={handleClick} className="rounded-md border border-gray-400 md:text-base text-sm py-2 w-1/2 text-center bg-gray-100 hover:bg-gray-200 duration-200">
                         {isPending ? '読み込み中...' : 'ホームへ戻る'}
                     </button>
                     <SubmitButton/>

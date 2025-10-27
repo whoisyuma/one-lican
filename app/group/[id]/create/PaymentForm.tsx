@@ -19,7 +19,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <button type="submit" disabled={pending} className="bg-sky-600 text-white md:text-base text-sm rounded-md py-2 w-1/2">
+    <button type="submit" disabled={pending} className="bg-sky-600 hover:bg-sky-700 duration-200 text-white md:text-base text-sm rounded-md py-2 w-1/2">
       {pending ? '記録中...' : '立て替えを記録'}
     </button>
   )
@@ -88,7 +88,7 @@ export default function PaymentForm({ members, groupId }: PaymentFormProps) {
         </div>
 
         <div className="flex md:space-x-3 space-x-2">
-          <button type="button" onClick={handleClick} className="rounded-md border border-gray-400 md:text-base text-sm py-2 w-1/2 text-center bg-gray-100">
+          <button type="button" onClick={handleClick} className="rounded-md border border-gray-400 md:text-base text-sm py-2 w-1/2 text-center bg-gray-100 hover:bg-gray-200 duration-200">
             {isPending ? '読み込み中...' : 'ホームへ戻る'}
           </button>
           <SubmitButton/>
