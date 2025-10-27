@@ -193,7 +193,7 @@ export default async function GroupHome({ params }: PageProps) {
                 </section>
 
                 <section className="pb-10">
-                    <h1 className="md:text-2xl text-xl font-bold mb-5">立替一覧</h1>
+                    <h1 className="md:text-2xl text-xl font-bold mb-5 border-b border-sky-600 pb-2 lg:w-2/3">立替一覧</h1>
                     {payments.length > 0 ? (
                         <div>
                             {payments.map((payment) => {
