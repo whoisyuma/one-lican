@@ -205,6 +205,7 @@ export default async function GroupHome({ params }: PageProps) {
                                         <div>
                                             <div className="flex items-center space-x-2">
                                                 <h3 className="font-semibold">{payment.description}</h3>
+                                                <span className="text-xs text-gray-700">({new Date(payment.created_at).toLocaleDateString('ja-JP', { month: 'numeric', day: 'numeric' })})</span>
                                                 <Link href={`/group/${groupId}/payments/${payment.id}/edit`}>
                                                     <img src="/edit.svg" alt="編集アイコン" className="w-4 h-4"/>
                                                 </Link>
