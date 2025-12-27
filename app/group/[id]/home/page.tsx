@@ -116,6 +116,8 @@ export default async function GroupHome({ params }: PageProps) {
     let i = 0;
     let j = 0;
 
+    const EPS = 0.0001;
+
     while (i < creditors.length && j < debtors.length) {
         const creditor = creditors[i];
         const debtor = debtors[j];
@@ -130,10 +132,12 @@ export default async function GroupHome({ params }: PageProps) {
         creditor.balance -= amountToSettle;
         debtor.balance += amountToSettle;
 
-        if (creditor.balance === 0) {
+        if (Math.abs(creditor.balance) < EPS) {
+            creditor.balance = 0;
             i++;
         }
-        if (debtor.balance === 0) {
+        if (Math.abs(debtor.balance) < EPS) {
+            debtor.balance = 0;
             j++;
         }
     }
@@ -161,7 +165,7 @@ export default async function GroupHome({ params }: PageProps) {
                                         <span className="mx-2">→</span>
                                         <p className="font-semibold">{memberMap.get(settlement.to)}</p>
                                     </div>
-                                    <p className="font-semibold">{settlement.amount.toLocaleString()}円</p>
+                                    <p className="font-semibold">{Math.ceil(settlement.amount).toLocaleString()}円</p>
                                 </div>
                             ))}
                         </div>
@@ -179,7 +183,7 @@ export default async function GroupHome({ params }: PageProps) {
                             return (
                                 <div key={member.id}  className="flex justify-between">
                                     <span className="font-semibold">{member.name}</span>
-                                    <span className="font-semibold">{amount.toLocaleString()}円</span>
+                                    <span className="font-semibold">{Math.round(amount).toLocaleString()}円</span>
                                 </div>
                             )
                         })}
