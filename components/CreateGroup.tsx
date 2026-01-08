@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useFormStatus } from "react-dom";
 import { createGroup } from "@/app/actions";
 
-function SubmitButton() {
+function CreateGroupButton() {
   const { pending } = useFormStatus();
 
   return (
@@ -120,7 +120,7 @@ export default function CreateGroup() {
       </div>
 
       <div className="flex justify-center">
-        <SubmitButton/>
+        <CreateGroupButton/>
       </div>
     </form>
   )
