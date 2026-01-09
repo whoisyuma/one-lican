@@ -245,7 +245,7 @@ export default async function GroupHome({ params }: PageProps) {
                           </span>
                           <Link href={`/group/${groupId}/payments/${payment.id}/edit`}>
                               <img 
-                                src="/edit.svg" 
+                                src="/icons/edit.svg" 
                                 alt="編集アイコン" 
                                 className="w-4 h-4"
                               />

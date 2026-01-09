@@ -41,10 +41,10 @@
 ## デザイン
 
 ### モバイル版
-![モバイル版のデザイン例](/public/mockup1.png)
+![モバイル版のデザイン例](/public/images/mockup1.png)
 
 ### デスクトップ版
-![デスクトップ版のデザイン例](/public/mockup2.png)
+![デスクトップ版のデザイン例](/public/images/mockup2.png)
 
 ## 連絡先
 以下から気軽にご連絡ください：
@@ -96,10 +96,10 @@ You can try the deployed version of the app here:
 ## Design
 
 ### Mobile Version  
-![Mobile Design Example](/public/mockup1.png)
+![Mobile Design Example](/public/images/mockup1.png)
 
 ### Desktop Version  
-![Desktop Design Example](/public/mockup2.png)
+![Desktop Design Example](/public/images/mockup2.png)
 
 ## Contact
 
