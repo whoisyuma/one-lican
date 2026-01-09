@@ -25,7 +25,7 @@ export default async function GroupPage({ params }: PageProps) {
       <div className="lg:w-1/2 md:w-2/3 w-full m-auto px-5 md:px-0 pt-10">
         <div className="flex flex-col items-center mb-10">
           <img 
-            src="/check.png" 
+            src="/icons/check.png" 
             alt="チェックマーク" 
             className="md:w-25 md:h-25 w-20 h-20 mb-15"
           />
