@@ -231,23 +231,23 @@ export default async function GroupHome({ params }: PageProps) {
 
                 return (
                   <div key={payment.id} className="flex justify-between items-center border-b border-sky-600 py-5">
-                    <div>
-                      <div className="flex items-center space-x-2">
-                          <h3 className="font-semibold">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start space-x-2">
+                          <h3 className="font-semibold min-w-0">
                             {payment.description}
                           </h3>
-                          <span className="text-xs text-gray-700">
+                          <span className="text-xs text-gray-600 mt-1">
                             ({new Date(payment.created_at)
                               .toLocaleDateString(
                                 'ja-JP', { month: 'numeric', day: 'numeric' }
                               )
                             })
                           </span>
-                          <Link href={`/group/${groupId}/payments/${payment.id}/edit`}>
+                          <Link href={`/group/${groupId}/payments/${payment.id}/edit`} className="shrink-0">
                               <img 
                                 src="/icons/edit.svg" 
                                 alt="編集アイコン" 
-                                className="w-4 h-4"
+                                className="w-4 h-4 mt-1"
                               />
                           </Link>
                       </div>
@@ -261,7 +261,7 @@ export default async function GroupHome({ params }: PageProps) {
                         }
                       </p>
                     </div>
-                    <p className="font-semibold">
+                    <p className="font-semibold ml-5 shrink-0">
                       {payment.amount.toLocaleString()}円
                     </p>
                   </div>
