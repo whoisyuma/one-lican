@@ -1,6 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
 import AddPaymentLink from "@/components/AddPaymentLink";
+import DisplayPersonalExpenses from "@/components/DisplayPersonalExpenses";
 
 interface Member {
   id: string;
@@ -34,6 +35,20 @@ interface Settlement {
   from: string;
   to: string;
   amount: number;
+}
+
+interface MemberExpenseDetail {
+  paymentId: string;
+  description: string;
+  amount: number;
+  created_at: string;
+}
+
+interface MemberExpense {
+  memberId: string;
+  name: string;
+  total: number;
+  details: MemberExpenseDetail[];
 }
 
 interface PageProps {
@@ -143,6 +158,37 @@ export default async function GroupHome({ params }: PageProps) {
     }
   }
 
+  const memberExpenses: MemberExpense[] = group.members.map((member) => {
+    const memberShares = shares.filter(
+      (share) => share.member_id === member.id
+    );
+
+    const details: MemberExpenseDetail[] = memberShares.map((share) => {
+      const payment = payments.find(
+        (p) => p.id === share.payment_id
+      );
+
+      if (!payment) {
+        return null;
+      }
+    
+      return {
+        paymentId: payment.id,
+        description: payment.description,
+        amount: share.amount,
+        created_at: payment.created_at,
+      };
+      }).filter((v): v is MemberExpenseDetail => v !== null);
+
+      return {
+      memberId: member.id,
+      name: member.name,
+      total: Math.round(totalShares.get(member.id) || 0),
+      details,
+    };
+  });
+
+
   return (
     <div className="bg-gray-200 min-h-screen">
       <div className="lg:w-1/2 md:w-2/3 w-full m-auto px-5 md:px-0 pt-10">
@@ -189,27 +235,7 @@ export default async function GroupHome({ params }: PageProps) {
           )}
         </section>
 
-        <section className="mb-20 md:mb-25 lg:mb-30 lg:w-2/3">
-          <h1 className="md:text-2xl text-xl font-bold mb-5 border-b border-sky-600 pb-2">
-            支出額
-          </h1>
-          <div className="space-y-1">
-            {group.members.map((member) => {
-              const amount = totalShares.get(member.id) || 0;
-
-              return (
-                <div key={member.id}  className="flex justify-between">
-                  <span className="font-semibold">
-                    {member.name}
-                  </span>
-                  <span className="font-semibold">
-                    {Math.round(amount).toLocaleString()}円
-                  </span>
-                </div>
-              )
-              })}
-          </div>
-        </section>
+        <DisplayPersonalExpenses data={memberExpenses} />
 
         <section className="pb-10">
           <div className="border-b border-sky-600 pb-2 mb-2 flex justify-between items-center">
@@ -243,12 +269,15 @@ export default async function GroupHome({ params }: PageProps) {
                               )
                             })
                           </span>
-                          <Link href={`/group/${groupId}/payments/${payment.id}/edit`} className="shrink-0">
-                              <img 
-                                src="/icons/edit.svg" 
-                                alt="編集アイコン" 
-                                className="w-4 h-4 mt-1"
-                              />
+                          <Link 
+                            href={`/group/${groupId}/payments/${payment.id}/edit`} 
+                            className="shrink-0"
+                          >
+                            <img 
+                              src="/icons/edit.svg" 
+                              alt="編集アイコン" 
+                              className="w-4 h-4 mt-1"
+                            />
                           </Link>
                       </div>
                       <p className="text-xs text-gray-500 mt-1">
