@@ -75,7 +75,7 @@ export default function DisplayPersonalExpenses({ data }: Props) {
                           ・
                         </span>
                         <div className="flex items-start space-x-2 min-w-0">
-                          <h3 className="font-medium break-words">
+                          <h3 className="font-semibold break-words">
                             {detail.description}
                           </h3>
                           <span className="text-xs text-gray-600 mt-1">

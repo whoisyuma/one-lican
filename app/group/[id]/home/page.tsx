@@ -196,9 +196,12 @@ export default async function GroupHome({ params }: PageProps) {
           <h1 className="md:text-4xl text-2xl font-bold md:mb-3 mb-2">
             {group?.name}
           </h1>
-          <div className="flex">
-            <p className="md:text-sm text-xs">
-              メンバー：{group?.members.map((member: Member) => member.name).join('・')}
+          <div className="flex items-start">
+            <p className="md:text-sm text-xs whitespace-nowrap">
+              メンバー：
+            </p>
+            <p className="md:text-sm text-xs break-words">
+              {group?.members.map((member: Member) => member.name).join('・')}
             </p>
           </div>
         </div>
