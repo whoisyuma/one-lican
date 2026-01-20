@@ -37,10 +37,10 @@
 - ~~フォーム送信中の状態管理~~（実装済み）
 
 ## 公開サイト
-こちらからデプロイ後のサイトをご覧いただけます：
-[https://one-lican.vercel.app/](https://one-lican.vercel.app/)
-※こちらからグループ作成後のサンプルページもご覧いただけます：
-[サンプルページ](https://one-lican.vercel.app/group/965ca3e1-57e3-44e7-bf83-dce4125aa784/home)
+- こちらからデプロイ後のサイトをご覧いただけます：
+  - [https://one-lican.vercel.app/](https://one-lican.vercel.app/)
+- ※こちらからグループ作成後のサンプルページもご覧いただけます：
+  - [サンプルページ](https://one-lican.vercel.app/group/965ca3e1-57e3-44e7-bf83-dce4125aa784/home)
 
 ## デザイン
 
